@@ -1,7 +1,7 @@
 <template>
     <nav class="primary-navigation">
         <section class="title-bar">
-            <section class="hamburger">
+            <section class="hamburger" v-on:click="toggleNavigation">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -23,7 +23,7 @@
         name: 'Navigation',
         data () {
             return {
-                links : [
+                links: [
                     {
                         id: 0,
                         href: '/',
@@ -39,6 +39,12 @@
                     }
                 ]
             }
+        }, methods: {
+            toggleNavigation: () => {
+                const links = document.querySelector('.links');
+
+                links.classList.toggle('show');
+            }
         }
     }
 </script>
@@ -48,11 +54,15 @@
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 99;
         background: #72c1af;
         margin: 0;
         padding: 10px;
         width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, .40);
+        box-shadow: 0 0 15px rgba(00, 00, 00, .35);
     }
+
     .hamburger {
         width: 40px;
         height: 40px;
@@ -66,6 +76,7 @@
         float: left;
         transition: all .4s;
     }
+
     .hamburger div {
         width: 50%;
         height: 2px;
@@ -73,13 +84,16 @@
         background: rgba(00, 00, 00, .25);
         transition: all .4s;
     }
+
     .hamburger:hover {
         background: rgba(00, 00, 00, .25);
         border-color: rgba(255, 255, 255, .50);
     }
+
     .hamburger:hover div {
         background: rgba(255, 255, 255, .50);
     }
+
     .branding {
         text-align: left;
         line-height: 40px;
@@ -90,14 +104,24 @@
         float: left;
         font-weight: 300;
     }
-    .primary-navigation {
+
+    .links {
         position: fixed;
         top: 60px;
         left: 0;
         bottom: 0;
+        z-index: 9;
         background: #ECEDEE;
+        border-right: 1px solid #ccc;
+        transform: translateX(-100%);
+        transition: all .4s;
     }
-    .primary-navigation .link {
+
+    .links.show {
+        transform: translateX(0%);
+    }
+
+    .links .link {
         display: block;
         color: #1b1b1b;
         text-align: left;
@@ -105,5 +129,11 @@
         text-decoration: none;
         border-bottom: 1px solid #ccc;
         font-size: 18px;
+        width: 275px;
+        transition: all .4s;
+    }
+
+    .links .link:hover {
+        background: #CCC;
     }
 </style>
