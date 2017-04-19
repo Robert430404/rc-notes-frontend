@@ -1,12 +1,14 @@
 <template>
     <section class="notes row">
-        <section class="note" v-for="note in notes">
-            <h3 class="name">{{ note.name }}</h3>
-            <p class="content">
-                {{ note.content }}
-            </p>
-            <a :href="/update/ + note.id">Update Note</a>
-        </section>
+        <div class="columns large-4 medium-4 small-12" v-for="note in notes">
+            <section class="note">
+                <h3 class="name">{{ note.name }}</h3>
+                <p class="content">
+                    {{ note.content }}
+                </p>
+                <a :href="/update/ + note.id">Update Note</a>
+            </section>
+        </div>
     </section>
 </template>
 
@@ -42,9 +44,7 @@
         border: 1px solid #f1f1f1;
         padding: 20px;
         border-radius: 4px;
-        width: 33%;
-        float: left;
-        margin: 30px 0 0;
+        margin-top: 30px;
     }
 
     .note .name {
@@ -60,5 +60,7 @@
         font-size: 16px;
         text-align: left;
         margin: 20px auto 0 auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 </style>

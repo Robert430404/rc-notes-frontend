@@ -1,7 +1,18 @@
 <template>
     <div class="add-new-note">
         <Navigation></Navigation>
-        Create new note
+        <div class="row">
+            <form action="/add-new" class="add-new-note-form columns large-12 medium-12 small-12">
+                <div class="row">
+                    <div class="columns large-12 medium-12 small-12">
+                        <label class="label-group">
+                            <span class="label-text">Note Title</span>
+                            <input type="text" placeholder="Enter Your Note Title Here" name="title" class="form-control" />
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -21,27 +32,35 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    h1, h2 {
-        font-weight: normal;
+    .add-new-note-form {
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 4px;
+        display: block;
+        background: #ECEDEE;
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
+    .label-group .label-text {
+        float: left;
+        background: #CCCCCC;
+        border-radius: 4px 0 0 4px;
+        display: block;
+        padding: 10px;
+        width: 15%;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1.25;
     }
-
-    li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    a {
-        color: #42b983;
-    }
-
-    .row {
-        max-width: 1160px;
-        margin: 0 auto;
-        overflow: hidden;
+    .label-group .form-control {
+        float: left;
+        padding: 10px 15px;
+        width: 85%;
+        font-size: 22px;
+        border-radius: 0 4px 4px 0;
+        font-weight: 300;
+        height: auto;
+        line-height: 1.25;
+        border: 0;
     }
 </style>
