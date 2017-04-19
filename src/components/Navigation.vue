@@ -30,7 +30,7 @@
                         label: 'Home'
                     }, {
                         id: 1,
-                        href: '/new',
+                        href: '/add-new',
                         label: 'New Note'
                     }, {
                         id: 2,
