@@ -36,13 +36,6 @@
         },
         data () {
             return {}
-        },
-        mounted () {
-            tinymce.init({
-                selector:'.note-editor',
-                menubar: false,
-                height: 300,
-            });
         }
     }
 </script>
@@ -84,10 +77,9 @@
     .form-control {
         background: #FFF;
         color: #000;
-        transition: all .4s;
+        transition: all .4s !important;
     }
     .form-control:focus {
-        background: #b9e4da;
         color: #000;
     }
 
@@ -100,6 +92,16 @@
     }
     .mce-panel {
         background: #FFF !important;
+    }
+
+    textarea {
+        padding: 20px;
+        background: #FFF;
+        margin: 0;
+        border: 0;
+        border-radius: 4px;
+        min-height: 250px;
+        transition: all .4s !important;
     }
 
     .button {
