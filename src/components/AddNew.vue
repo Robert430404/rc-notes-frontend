@@ -11,6 +11,16 @@
                         </label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="columns large-12 medium-12 small-12">
+                        <textarea class="note-editor" title="Note Editor" placeholder="Enter Your Note Content"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns large-12 medium-12 small-12">
+                        <input type="submit" name="submit" class="button" value="Create Your New Note">
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -26,6 +36,13 @@
         },
         data () {
             return {}
+        },
+        mounted () {
+            tinymce.init({
+                selector:'.note-editor',
+                menubar: false,
+                height: 300,
+            });
         }
     }
 </script>
@@ -62,5 +79,55 @@
         height: auto;
         line-height: 1.25;
         border: 0;
+    }
+
+    .form-control {
+        background: #FFF;
+        color: #000;
+        transition: all .4s;
+    }
+    .form-control:focus {
+        background: #b9e4da;
+        color: #000;
+    }
+
+    .mce-container, .mce-container-body {
+        background: #FFF;
+        border-radius: 4px !important;
+        border: 0;
+        padding: 20px;
+        font-size: 18px;
+    }
+    .mce-panel {
+        background: #FFF !important;
+    }
+
+    .button {
+        background: #72c1af;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 22px;
+        font-weight: 300;
+        padding: 10px;
+        margin: 20px 0 0;
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        transition: all .3s;
+    }
+    .button:hover {
+        color: #000;
+        background: #CCC;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #000;
+    }
+    ::-moz-placeholder {
+        color: #000;
+    }
+    :-ms-input-placeholder {
+        color: #000;
+    }
+    :-moz-placeholder {
+        color: #000;
     }
 </style>
