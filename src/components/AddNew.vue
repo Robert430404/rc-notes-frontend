@@ -2,7 +2,7 @@
     <div class="add-new-note">
         <Navigation></Navigation>
         <div class="row">
-            <form action="/add-new" class="add-new-note-form columns large-12 medium-12 small-12">
+            <form action="/add-new" class="add-new-note-form columns large-12 medium-12 small-12" v-on:submit="submitNote">
                 <div class="row">
                     <div class="columns large-12 medium-12 small-12">
                         <label class="label-group">
@@ -36,6 +36,27 @@
         },
         data () {
             return {}
+        },
+        methods: {
+            submitNote: (e) => {
+                e.preventDefault();
+
+                const form = document.querySelector('.add-new-note-form');
+
+                fetch('https://api.studiorclv.com/api/v1/notes', {
+                    method: 'put',
+                    body: 'inputs=' + JSON.stringify({
+                        name: 'Test title',
+                        content: 'This is test content',
+                        type: 1
+                    }),
+                    mode: 'cors'
+                }).then((resp) => {
+                    return resp.json();
+                }).then((json) => {
+                    console.log(json);
+                });
+            }
         }
     }
 </script>
